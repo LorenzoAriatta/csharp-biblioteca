@@ -15,6 +15,30 @@ public class UsersList
 		users.Add(newUser);
     }
 
+	public bool UserLogIn(string email, string password)
+    {
+		bool check = false;
+		foreach(User user in users)
+        {
+			if(user.email == email && user.password == password)
+            {
+                Console.WriteLine($"Hi {user.name} {user.surname}");
+
+				//user.isLogged = true;
+				check = true;
+				break;
+				//return user;
+            }
+			else
+            {
+				check = false;
+				Console.WriteLine("Something went wrong");
+			}
+        }
+        //Console.WriteLine("Something went wrong");
+		return check;
+    }
+
 	public void UserInfo()
     {
 		foreach(User user in users)
