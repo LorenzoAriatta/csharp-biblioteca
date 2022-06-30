@@ -2,6 +2,7 @@
 //Console.WriteLine("Hello, World!");
 
 
+
 // Biblioteca online
 // 1. registrati
 // 2. login
@@ -35,15 +36,37 @@ users.UserRegistration("Calzoni", "Stefano", "stefano.calzoni@gmail.com", "lello
 users.UserRegistration("Filippini", "Fabio", "fabio.filippini@gmail.com", "lallo321", "755445885");
 users.UserRegistration("Giovene", "Giovanni", "giovanni.giovene@gmail.com", "lillo213", "755445886");
 
-Console.WriteLine("********************");
-Console.WriteLine("The Library");
-Console.WriteLine("********************");
 
-Console.WriteLine("1. Registrati");
-Console.WriteLine("2. Effettua login");
-int choice = Int32.Parse(Console.ReadLine());
+MenuHome();
 
-if(choice == 1)
+
+
+
+
+
+
+//functions
+void MenuHome()
+{
+    Console.WriteLine("********************");
+    Console.WriteLine("The Library");
+    Console.WriteLine("********************");
+
+    Console.WriteLine("1. Registrati");
+    Console.WriteLine("2. Effettua login");
+    int choice = Int32.Parse(Console.ReadLine());
+
+    if (choice == 1)
+    {
+        RegisterMenu();
+    }
+    else if (choice == 2)
+    {
+        LoginMenu();
+    }
+}
+
+void RegisterMenu()
 {
     Console.Clear();
 
@@ -62,6 +85,30 @@ if(choice == 1)
     Console.WriteLine("Your phone number: ");
     string phone = Console.ReadLine();
 
-
     users.UserRegistration(surname, name, email, password, phone);
+}
+
+void LoginMenu()
+{
+    Console.Clear();
+
+    Console.WriteLine("Please, fill the fields: ");
+
+    Console.Write("Email: ");
+    string email = Console.ReadLine();
+
+    Console.Write("Password: ");
+    string password = Console.ReadLine();
+
+    bool log = users.UserLogIn(email, password);
+
+
+    if (log == true)
+    {
+        Console.Write($"Welcome back");
+    }
+    else
+    {
+        MenuHome();
+    }
 }
