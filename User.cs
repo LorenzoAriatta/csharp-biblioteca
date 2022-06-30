@@ -2,21 +2,26 @@
 
 public class User
 {
-	protected string surname;
+	public string surname;
 
-	protected string name;
+	public string name;
 
-	protected string email;
+	public string email;
 
-	protected string password;
+	public string password;
 
-	protected uint phone;
-	public User(string surname, string name, string email, string password, uint phone)
+	public string phone;
+
+	public User(string surname, string name, string email, string password, string phone)
 	{
 		this.surname = surname;
+
 		this.name = name;
+
 		this.email = email;
+
 		this.password = password;
+
 		this.phone = phone;
 	}
 
